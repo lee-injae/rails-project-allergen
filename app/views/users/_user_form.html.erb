@@ -1,11 +1,12 @@
 <%=form_for @user do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%>
-
-
+<h4>Check all allergies that apply:</h4>
     <% Ingredient.all.each do |ingredient| %>
-        <%=label :ingredient%>
-        <%=check_box ingredient.id %>    
+        <div>
+            <%=label_tag 'user[ingredient_ids][]', ingredient.name %>
+            <%=check_box_tag 'user[ingredient_ids][]', ingredient.id %>
+        </div>   
     <%end%>
 <%=f.submit%>
 <%end%>

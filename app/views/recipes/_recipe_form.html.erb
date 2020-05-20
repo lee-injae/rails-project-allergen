@@ -1,0 +1,14 @@
+<%=form_for @recipe do |f|%>
+    <%=f.label :name%>
+    <%=f.text_field :name%>
+    <%= f.label :user_id, 'Created by:' %>
+    <%= f.select :user_id, User.all.collect { |user| [ user.name, user.id ] } %>
+    <h4>Check all ingredients that apply:</h4>
+        <% Ingredient.all.each do |ingredient| %>
+            <div>
+                <%=label_tag 'recipe[ingredient_ids][]', ingredient.name %>
+                <%=check_box_tag 'recipe[ingredient_ids][]', ingredient.id %>
+            </div>   
+        <%end%>
+    <%=f.submit%>
+    <%end%>
