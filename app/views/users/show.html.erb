@@ -1,0 +1,19 @@
+<h1>Detail for User</h1>
+
+<%=@user.name%>
+<br>
+
+<p>List of Allergies</p>
+<ul>
+<%@user.allergies.each do |allergy|%>
+<li><%=link_to allergy.ingredient.name, ingredient_path(allergy.ingredient)%></li>
+<%end%>
+</ul>
+<br>
+
+<p>List of Recipes</p>
+<ul>
+<%@user.recipes.each do |recipe|%>
+<li><%=link_to recipe.name, recipe_path(recipe)%></li>
+<%end%>
+</ul>

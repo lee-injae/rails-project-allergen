@@ -1,4 +1,4 @@
 class Ri < ApplicationRecord
-    belongs_to :recipe
-    belongs_to :ingredient
+    belongs_to :recipe, dependent: :destroy
+    belongs_to :ingredient, dependent: :destroy
 end

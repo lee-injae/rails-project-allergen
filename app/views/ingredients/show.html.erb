@@ -1,0 +1,13 @@
+<h1>Detail for Ingredient</h1>
+
+<p><%=@ingredient.name%></p>
+
+<br>
+
+<%= form_tag ingredient_path(@ingredient), method: "delete" do %>
+    <%= submit_tag "Delete this Ingredient" %>
+<% end %>
+
+<br><br>
+
+<%=link_to "Return to List of Ingredients", ingredients_path%>

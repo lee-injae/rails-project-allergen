@@ -182,3 +182,626 @@ Migrating to CreateAllergies (20200520180151)
   [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mRi Load (0.4ms)[0m  [1m[34mSELECT "ris".* FROM "ris" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-05-20 14:25:12 -0400
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/saimaakhtar/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/saimaakhtar/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 33.9ms | Allocations: 480)
+Completed 200 OK in 162ms (Views: 53.6ms | ActiveRecord: 0.0ms | Allocations: 2870)
+
+
+Started GET "/ingredients" for ::1 at 2020-05-20 14:25:18 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 35.7ms | Allocations: 2090)
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 0.0ms | Allocations: 6111)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <ul>
+    2: 
+    3: <%@ingredient.each do |ingredient|%>
+    4: <li><%=link_to ingredient.name, ingredient_path(ingredient)%></li>
+    5: <% end%>
+    6: </ul>
+  
+app/views/ingredients/index.html.erb:3
+Started GET "/ingredients" for ::1 at 2020-05-20 14:25:33 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/ingredients/index.html.erb:3
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 26.4ms | Allocations: 4019)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/saimaakhtar/Flatiron/code/Mod2/allergen_with_injae_abhinav/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.43.0
+Time: 3460ms
+Built at: 05/20/2020 2:25:41 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 8312ms (Views: 8305.0ms | ActiveRecord: 2.3ms | Allocations: 29169)
+
+
+Started GET "/ingredients/1" for ::1 at 2020-05-20 14:26:40 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 111)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 243ms (Views: 180.0ms | ActiveRecord: 0.5ms | Allocations: 7995)
+
+
+Started GET "/ingredients/1" for ::1 at 2020-05-20 14:26:54 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 104)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 46.8ms | ActiveRecord: 0.1ms | Allocations: 5654)
+
+
+Started GET "/ingredients/1" for ::1 at 2020-05-20 14:29:19 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 107)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 250ms (Views: 244.4ms | ActiveRecord: 0.7ms | Allocations: 5657)
+
+
+Started GET "/ingredients/1/edit" for ::1 at 2020-05-20 14:29:23 -0400
+Processing by IngredientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/edit.html.erb within layouts/application
+  Rendered ingredients/_ingredient_form.html.erb (Duration: 60.2ms | Allocations: 6938)
+  Rendered ingredients/edit.html.erb within layouts/application (Duration: 62.8ms | Allocations: 7240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 81.7ms | ActiveRecord: 0.2ms | Allocations: 11911)
+
+
+Started PATCH "/ingredients/1" for ::1 at 2020-05-20 14:29:30 -0400
+Processing by IngredientsController#update as HTML
+  Parameters: {"authenticity_token"=>"ZcWyqJFhLbOmZGwUhdks8euiYWoTa1JGr2WKUo/w1N14bwIhKq5OERqqOAxHT39OtvN0MgUiDtq8pU+8O24n1Q==", "ingredient"=>{"name"=>"Eggs"}, "commit"=>"Update Ingredient", "id"=>"1"}
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:25:in `update'
+  [1m[36mIngredient Update (1.0ms)[0m  [1m[33mUPDATE "ingredients" SET "name" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["name", "Eggs"], ["updated_at", "2020-05-20 18:29:30.444978"], ["id", 1]]
+  ↳ app/controllers/ingredients_controller.rb:25:in `update'
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:25:in `update'
+Redirected to http://localhost:3000/ingredients/1
+Completed 302 Found in 41ms (ActiveRecord: 13.0ms | Allocations: 3758)
+
+
+Started GET "/ingredients/1" for ::1 at 2020-05-20 14:29:30 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (1.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 65.1ms | ActiveRecord: 1.1ms | Allocations: 4805)
+
+
+Started GET "/ingredients/new" for ::1 at 2020-05-20 14:29:35 -0400
+Processing by IngredientsController#new as HTML
+  Rendering ingredients/new.html.erb within layouts/application
+  Rendered ingredients/_ingredient_form.html.erb (Duration: 3.2ms | Allocations: 544)
+  Rendered ingredients/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 704)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 25.0ms | ActiveRecord: 0.0ms | Allocations: 4932)
+
+
+Started POST "/ingredients" for ::1 at 2020-05-20 14:29:40 -0400
+Processing by IngredientsController#create as HTML
+  Parameters: {"authenticity_token"=>"0pgVSJ7RTkhVjg63drr8qvq6E7L0CZIaVlZj3iL7rQ/PMqXBJR4t6ulAWq+0LK8Vp+sG6uJAzoZFlqYwlmVeBw==", "ingredient"=>{"name"=>"Pepper"}, "commit"=>"Create Ingredient"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:16:in `create'
+  [1m[36mIngredient Create (11.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pepper"], ["created_at", "2020-05-20 18:29:40.246927"], ["updated_at", "2020-05-20 18:29:40.246927"]]
+  ↳ app/controllers/ingredients_controller.rb:16:in `create'
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:16:in `create'
+Redirected to http://localhost:3000/ingredients/7
+Completed 302 Found in 31ms (ActiveRecord: 19.0ms | Allocations: 2875)
+
+
+Started GET "/ingredients/7" for ::1 at 2020-05-20 14:29:40 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 49.2ms | ActiveRecord: 0.2ms | Allocations: 4625)
+
+
+Started GET "/ingredients/" for ::1 at 2020-05-20 14:29:43 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/ingredients/index.html.erb:3
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1012)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 26.8ms | ActiveRecord: 0.3ms | Allocations: 5229)
+
+
+Started GET "/ingredients/1" for ::1 at 2020-05-20 14:33:04 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1033)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.2ms | Allocations: 2862)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    4: 
+    5: <br>
+    6: 
+    7: <%form_for @ingredient, method = "delete" do |f|%>
+    8: <%=f.submit "Delete"%>
+    9: <%end%>
+  
+app/views/ingredients/show.html.erb:7
+Started GET "/ingredients/" for ::1 at 2020-05-20 14:33:09 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (4.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/ingredients/index.html.erb:3
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1044)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 61.5ms | ActiveRecord: 4.4ms | Allocations: 5450)
+
+
+Started GET "/ingredients/1" for ::1 at 2020-05-20 14:33:43 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 9.9ms | Allocations: 339)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 67.1ms | ActiveRecord: 0.2ms | Allocations: 5882)
+
+
+Started DELETE "/ingredients/1" for ::1 at 2020-05-20 14:33:45 -0400
+Processing by IngredientsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k8FNNQlxKmeg8qzQjqm8R9aCh5Zpkkg3vj2OAvGbO9uj88fRZm8xKmKdbR3UC5Mgp3aK5rzpnsPzQnGNMRKiWw==", "commit"=>"Delete this Ingredient", "id"=>"1"}
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.4ms | Allocations: 1308)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: ingredient):
+  
+app/controllers/ingredients_controller.rb:41:in `ingredient_params'
+app/controllers/ingredients_controller.rb:30:in `destroy'
+Started DELETE "/ingredients/1" for ::1 at 2020-05-20 14:34:07 -0400
+Processing by IngredientsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"77KHhhUNgQ1vXGB2gFw4D+8LH9He1XzaWKJctCLmplnyGDcPrsLir9OSNG5CymuwsloKicicIEZLYplalnhVUQ==", "commit"=>"Delete this Ingredient", "id"=>"1"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.3ms | Allocations: 1274)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: ingredient):
+  
+app/controllers/ingredients_controller.rb:41:in `ingredient_params'
+app/controllers/ingredients_controller.rb:30:in `destroy'
+Started DELETE "/ingredients/1" for ::1 at 2020-05-20 14:34:57 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IngredientsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"77KHhhUNgQ1vXGB2gFw4D+8LH9He1XzaWKJctCLmplnyGDcPrsLir9OSNG5CymuwsloKicicIEZLYplalnhVUQ==", "commit"=>"Delete this Ingredient", "id"=>"1"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:30:in `destroy'
+  [1m[36mIngredient Destroy (0.8ms)[0m  [1m[31mDELETE FROM "ingredients" WHERE "ingredients"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/ingredients_controller.rb:30:in `destroy'
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:30:in `destroy'
+Redirected to http://localhost:3000/ingredients
+Completed 302 Found in 161ms (ActiveRecord: 6.7ms | Allocations: 12439)
+
+
+Started GET "/ingredients" for ::1 at 2020-05-20 14:34:58 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/ingredients/index.html.erb:3
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 1843)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 111ms (Views: 48.0ms | ActiveRecord: 0.2ms | Allocations: 9689)
+
+
+Started GET "/ingredients/new" for ::1 at 2020-05-20 14:35:01 -0400
+Processing by IngredientsController#new as HTML
+  Rendering ingredients/new.html.erb within layouts/application
+  Rendered ingredients/_ingredient_form.html.erb (Duration: 11.7ms | Allocations: 724)
+  Rendered ingredients/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 1060)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 5278)
+
+
+Started POST "/ingredients" for ::1 at 2020-05-20 14:35:04 -0400
+Processing by IngredientsController#create as HTML
+  Parameters: {"authenticity_token"=>"sLxqtxVfEBZh574coLze75kDinuD7lL9om3bTQeXOCJDde8ii0+c7wrN3tmP4S5DvZ0uf7beWvgG6M5CVzFb9w==", "ingredient"=>{"name"=>"Egg"}, "commit"=>"Create Ingredient"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:16:in `create'
+  [1m[36mIngredient Create (0.8ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Egg"], ["created_at", "2020-05-20 18:35:04.438513"], ["updated_at", "2020-05-20 18:35:04.438513"]]
+  ↳ app/controllers/ingredients_controller.rb:16:in `create'
+  [1m[35m (14.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/ingredients_controller.rb:16:in `create'
+Redirected to http://localhost:3000/ingredients/8
+Completed 302 Found in 34ms (ActiveRecord: 15.0ms | Allocations: 2952)
+
+
+Started GET "/ingredients/8" for ::1 at 2020-05-20 14:35:04 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mIngredient Load (7.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 177)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 22.5ms | ActiveRecord: 7.7ms | Allocations: 8774)
+
+
+Started GET "/ingredients/" for ::1 at 2020-05-20 14:35:12 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/ingredients/index.html.erb:3
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 890)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.2ms | Allocations: 4961)
+
+
+Started GET "/ingredients/2" for ::1 at 2020-05-20 14:36:01 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 383)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 58.8ms | ActiveRecord: 0.2ms | Allocations: 5927)
+
+
+Started GET "/ingredients" for ::1 at 2020-05-20 14:36:07 -0400
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/ingredients/index.html.erb:3
+  Rendered ingredients/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1042)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.2ms | Allocations: 5257)
+
+
+Started GET "/users" for ::1 at 2020-05-20 14:49:06 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 3693)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 28.5ms | ActiveRecord: 0.8ms | Allocations: 10552)
+
+
+Started GET "/users/1" for ::1 at 2020-05-20 14:49:08 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 15.1ms | Allocations: 2698)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.9ms | Allocations: 4032)
+
+
+  
+ActionView::Template::Error (undefined method `allergies' for #<User:0x00007ff6125af4a0>
+Did you mean?  allergens
+               allergens=):
+     5: 
+     6: <p>List of Allergies</p>
+     7: <ul>
+     8: <%@user.allergies.each do |allergy|%>
+     9: <li><%=link_to allergy.ingredient, ingredient_path(allergy.ingredient)%></li>
+    10: <%end%>
+    11: </ul>
+  
+app/views/users/show.html.erb:8
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAllergy Load (0.4ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2020-05-20 14:51:59 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 31.7ms | ActiveRecord: 0.8ms | Allocations: 9721)
+
+
+Started GET "/users/1" for ::1 at 2020-05-20 14:52:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAllergy Load (0.2ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies" WHERE "allergies"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (Duration: 119.7ms | Allocations: 20860)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 135ms (Views: 125.5ms | ActiveRecord: 4.4ms | Allocations: 25490)
+
+
+Started GET "/recipes/1" for ::1 at 2020-05-20 14:52:21 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:37:in `find_ingredient'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1385)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Ingredient with 'id'=1):
+  
+app/controllers/recipes_controller.rb:37:in `find_ingredient'
+Started GET "/users/1" for ::1 at 2020-05-20 14:52:28 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAllergy Load (0.2ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies" WHERE "allergies"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 2286)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 49.5ms | ActiveRecord: 0.9ms | Allocations: 6900)
+
+
+Started GET "/ingredients/2" for ::1 at 2020-05-20 14:52:31 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 385)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 30.0ms | ActiveRecord: 0.2ms | Allocations: 5575)
+
+
+Started GET "/users/1" for ::1 at 2020-05-20 14:53:10 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAllergy Load (0.1ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies" WHERE "allergies"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2507)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 28.8ms | ActiveRecord: 0.7ms | Allocations: 8044)
+
+
+Started GET "/ingredients/2" for ::1 at 2020-05-20 14:53:12 -0400
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ingredients_controller.rb:37:in `find_ingredient'
+  Rendering ingredients/show.html.erb within layouts/application
+  Rendered ingredients/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 376)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 17.7ms | ActiveRecord: 0.3ms | Allocations: 5555)
+
+
+Started GET "/users/" for ::1 at 2020-05-20 14:53:20 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 859)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.2ms | Allocations: 5079)
+
+
+Started GET "/users/" for ::1 at 2020-05-20 15:01:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:3
+  Rendered users/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 880)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.3ms | Allocations: 5882)
+
+
+Started GET "/users/1" for ::1 at 2020-05-20 15:01:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `find_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAllergy Load (1.2ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies" WHERE "allergies"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:8
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:16
+  Rendered users/show.html.erb within layouts/application (Duration: 27.5ms | Allocations: 2550)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 46.9ms | ActiveRecord: 2.1ms | Allocations: 7312)
+
+
+Started GET "/users/new" for ::1 at 2020-05-20 15:01:12 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 73)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 4287)
+
+
+Started GET "/users/new" for ::1 at 2020-05-20 15:02:12 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/users/_user_form.html.erb:5
+  Rendered users/_user_form.html.erb (Duration: 22.5ms | Allocations: 3032)
+  Rendered users/new.html.erb within layouts/application (Duration: 23.8ms | Allocations: 3358)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.3ms | Allocations: 4642)
+
+
+  
+ActionView::Template::Error (undefined method `id' for :ingredient:Symbol):
+    4: 
+    5:     <% Ingredient.all.each do |ingredient| %>
+    6:         <%=f.label :ingredient%>
+    7:         <%= f.check_box :ingredient.id %>    
+    8:     <%end%>
+    9: <%=f.label :name%>
+   10: <%=f.label :name%>
+  
+app/views/users/_user_form.html.erb:7
+app/views/users/_user_form.html.erb:5
+app/views/users/_user_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2020-05-20 15:02:53 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/users/_user_form.html.erb:5
+  Rendered users/_user_form.html.erb (Duration: 53.2ms | Allocations: 6498)
+  Rendered users/new.html.erb within layouts/application (Duration: 65.9ms | Allocations: 6823)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.6ms | Allocations: 8110)
+
+
+  
+ActionView::Template::Error (undefined method `2' for #<User id: nil, name: nil, created_at: nil, updated_at: nil>):
+    4: 
+    5:     <% Ingredient.all.each do |ingredient| %>
+    6:         <%=f.label :ingredient%>
+    7:         <%= f.check_box ingredient.id %>    
+    8:     <%end%>
+    9: <%=f.label :name%>
+   10: <%=f.label :name%>
+  
+app/views/users/_user_form.html.erb:7
+app/views/users/_user_form.html.erb:5
+app/views/users/_user_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2020-05-20 15:04:15 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/users/_user_form.html.erb:5
+  Rendered users/_user_form.html.erb (Duration: 17.6ms | Allocations: 3160)
+  Rendered users/new.html.erb within layouts/application (Duration: 18.7ms | Allocations: 3480)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.0ms | Allocations: 4767)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 2:Integer):
+    4: 
+    5:     <% Ingredient.all.each do |ingredient| %>
+    6:         <%=f.label :ingredient%>
+    7:         <%= f.check_box ingredient.name, ingredient.id %>    
+    8:     <%end%>
+    9: <%=f.label :name%>
+   10: <%=f.label :name%>
+  
+app/views/users/_user_form.html.erb:7
+app/views/users/_user_form.html.erb:5
+app/views/users/_user_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2020-05-20 15:08:29 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/users/_user_form.html.erb:5
+  Rendered users/_user_form.html.erb (Duration: 6.2ms | Allocations: 3894)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 4214)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 5501)
+
+
+  
+ActionView::Template::Error (undefined method `2' for #<User id: nil, name: nil, created_at: nil, updated_at: nil>):
+    4: 
+    5:     <% Ingredient.all.each do |ingredient| %>
+    6:         <%=f.label :ingredient%>
+    7:         <%= f.check_box ingredient.id %>    
+    8:     <%end%>
+    9: <%=f.label :name%>
+   10: <%=f.label :name%>
+  
+app/views/users/_user_form.html.erb:7
+app/views/users/_user_form.html.erb:5
+app/views/users/_user_form.html.erb:1
+app/views/users/new.html.erb:3
+Started GET "/users/new" for ::1 at 2020-05-20 15:12:28 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/views/users/_user_form.html.erb:6
+  Rendered users/_user_form.html.erb (Duration: 6.1ms | Allocations: 2260)
+  Rendered users/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2585)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms | Allocations: 3872)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 2..4)):
+    4: 
+    5: 
+    6:     <% Ingredient.all.each do |ingredient| %>
+    7:         <%=label :ingredient%>
+    8:         <%=check_box ingredient.id %>    
+    9:     <%end%>
+   10: <%=f.submit%>
+  
+app/views/users/_user_form.html.erb:7
+app/views/users/_user_form.html.erb:6
+app/views/users/_user_form.html.erb:1
+app/views/users/new.html.erb:3
