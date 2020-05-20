@@ -4,4 +4,10 @@
 <li><%=link_to recipe.name, recipe_path(recipe)%></li>
 <%end%>
 
+ <!-- <%=recipe.ingredients.count%> -->
+
 </ul>
+
+<h3>Add a new recipe!</h3>
+<%= link_to "Let's Create!", new_recipe_path %>
+

@@ -36,11 +36,15 @@ Ri.create(recipe_id:scrambled.id, ingredient_id:salt.id)
 Ri.create(recipe_id:sandwich.id, ingredient_id:bread.id)
 Ri.create(recipe_id:sandwich.id, ingredient_id:peanut_butter.id)
 Ri.create(recipe_id:sandwich.id, ingredient_id:jelly.id)
+Ri.create(recipe_id:sandwich.id, ingredient_id:salt.id)
+
 
 
 Allergy.create(user_id:ocean.id, ingredient_id:milk.id)
 Allergy.create(user_id:warren.id, ingredient_id:bread.id)
 Allergy.create(user_id:soozy.id, ingredient_id:salt.id)
+Allergy.create(user_id:soozy.id, ingredient_id:bread.id)
+
 
 
 

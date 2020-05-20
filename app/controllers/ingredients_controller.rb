@@ -2,7 +2,10 @@ class IngredientsController < ApplicationController
 
     before_action :find_ingredient, only: [:show, :edit, :update, :destroy]
     def index
-        @ingredients = Ingredient.all
+        # @ingredients = Ingredient.joins(:allergies).merge(Allergy.order(priority: :desc))    
+
+        @ingredients = Ingredient.left_joins(:allergies).group(:ingredient_id).order('COUNT(user_id) DESC')
+    
     end
 
     def show

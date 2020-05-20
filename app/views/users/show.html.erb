@@ -3,6 +3,11 @@
 <%=@user.name%>
 <br>
 
+
+
+
+
+
 <p>List of Allergies</p>
 <ul>
 <%@user.allergies.each do |allergy|%>
@@ -17,3 +22,17 @@
 <li><%=link_to recipe.name, recipe_path(recipe)%></li>
 <%end%>
 </ul>
+
+
+
+
+
+<%= link_to "Edit User", edit_user_path %>
+<div> </div>
+
+<%= link_to "Back to Users", users_path %>
+
+<div></div>
+<%= form_tag user_path(@user), method: "delete" do %>
+    <%= submit_tag "Delete " + @user.name %>
+<% end %>
