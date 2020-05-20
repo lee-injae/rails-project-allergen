@@ -64,3 +64,121 @@ Migrating to CreateAllergens (20200520164516)
   [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (10.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveAllergenTable (20200520175937)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "allergens"[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200520175937"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAllergies (20200520180151)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "allergies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "ingredient_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200520180151"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAllergy Load (0.5ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies"[0m
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mRi Load (2.0ms)[0m  [1m[34mSELECT "ris".* FROM "ris"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ocean"], ["created_at", "2020-05-20 18:10:40.712554"], ["updated_at", "2020-05-20 18:10:40.712554"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Warren"], ["created_at", "2020-05-20 18:10:40.720670"], ["updated_at", "2020-05-20 18:10:40.720670"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Soozy"], ["created_at", "2020-05-20 18:10:40.728847"], ["updated_at", "2020-05-20 18:10:40.728847"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Scrambled Eggs"], ["user_id", 1], ["created_at", "2020-05-20 18:10:40.772730"], ["updated_at", "2020-05-20 18:10:40.772730"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "PBJ"], ["user_id", 2], ["created_at", "2020-05-20 18:10:40.809830"], ["updated_at", "2020-05-20 18:10:40.809830"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Egg"], ["created_at", "2020-05-20 18:10:40.820050"], ["updated_at", "2020-05-20 18:10:40.820050"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Create (0.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Milk"], ["created_at", "2020-05-20 18:10:40.824379"], ["updated_at", "2020-05-20 18:10:40.824379"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Salt"], ["created_at", "2020-05-20 18:10:40.836871"], ["updated_at", "2020-05-20 18:10:40.836871"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Create (1.6ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Bread"], ["created_at", "2020-05-20 18:10:40.841662"], ["updated_at", "2020-05-20 18:10:40.841662"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Peanut Butter"], ["created_at", "2020-05-20 18:10:40.851828"], ["updated_at", "2020-05-20 18:10:40.851828"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jelly"], ["created_at", "2020-05-20 18:10:40.863877"], ["updated_at", "2020-05-20 18:10:40.863877"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRi Create (0.6ms)[0m  [1m[32mINSERT INTO "ris" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 1], ["ingredient_id", 1], ["created_at", "2020-05-20 18:10:40.885029"], ["updated_at", "2020-05-20 18:10:40.885029"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRi Create (0.3ms)[0m  [1m[32mINSERT INTO "ris" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 1], ["ingredient_id", 2], ["created_at", "2020-05-20 18:10:40.893651"], ["updated_at", "2020-05-20 18:10:40.893651"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRi Create (0.4ms)[0m  [1m[32mINSERT INTO "ris" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 1], ["ingredient_id", 3], ["created_at", "2020-05-20 18:10:40.906122"], ["updated_at", "2020-05-20 18:10:40.906122"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRi Create (1.2ms)[0m  [1m[32mINSERT INTO "ris" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 2], ["ingredient_id", 4], ["created_at", "2020-05-20 18:10:40.917400"], ["updated_at", "2020-05-20 18:10:40.917400"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRi Create (0.7ms)[0m  [1m[32mINSERT INTO "ris" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 2], ["ingredient_id", 5], ["created_at", "2020-05-20 18:10:40.933835"], ["updated_at", "2020-05-20 18:10:40.933835"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRi Create (0.4ms)[0m  [1m[32mINSERT INTO "ris" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 2], ["ingredient_id", 6], ["created_at", "2020-05-20 18:10:40.947053"], ["updated_at", "2020-05-20 18:10:40.947053"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAllergy Create (0.6ms)[0m  [1m[32mINSERT INTO "allergies" ("user_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["ingredient_id", 2], ["created_at", "2020-05-20 18:10:40.998400"], ["updated_at", "2020-05-20 18:10:40.998400"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAllergy Create (0.3ms)[0m  [1m[32mINSERT INTO "allergies" ("user_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["ingredient_id", 4], ["created_at", "2020-05-20 18:10:41.019491"], ["updated_at", "2020-05-20 18:10:41.019491"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAllergy Create (0.3ms)[0m  [1m[32mINSERT INTO "allergies" ("user_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["ingredient_id", 3], ["created_at", "2020-05-20 18:10:41.032497"], ["updated_at", "2020-05-20 18:10:41.032497"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mAllergy Load (0.2ms)[0m  [1m[34mSELECT "allergies".* FROM "allergies" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mRi Load (0.4ms)[0m  [1m[34mSELECT "ris".* FROM "ris" LIMIT ?[0m  [["LIMIT", 11]]

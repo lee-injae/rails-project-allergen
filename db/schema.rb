@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_164516) do
+ActiveRecord::Schema.define(version: 2020_05_20_180151) do
 
-  create_table "allergens", force: :cascade do |t|
+  create_table "allergies", force: :cascade do |t|
     t.integer "user_id"
     t.integer "ingredient_id"
     t.datetime "created_at", precision: 6, null: false
